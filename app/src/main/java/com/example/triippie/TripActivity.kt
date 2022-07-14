@@ -28,13 +28,24 @@ class TripActivity : AppCompatActivity() {
               if(position==0){
 
                   t.putExtra("position","0")
-                  t.putExtra("heading","Places to Visit In Kota")
+                  t.putExtra("heading","Places to Visit In Rajasthan")
            }
-               else{
+               else if(position==1){
 
                   t.putExtra("position","1")
                   t.putExtra("heading","Places to Visit In Kashmir")
               }
+                  else if(position==2){
+
+                      t.putExtra("position","2")
+                      t.putExtra("heading","Places to Visit In Kashmir")
+                  }
+                  else{
+
+                          t.putExtra("position","3")
+                          t.putExtra("heading","Places to Visit In Seven Sister")
+
+                  }
                startActivity(t)
        }
        })
