@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/place"
-        android:layout_width="351dp"
+        android:layout_width="372dp"
         android:layout_height="47dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans_extra_bold"
@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="335dp"
-        android:layout_height="626dp"
+        android:layout_width="344dp"
+        android:layout_height="394dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="10dp"
@@ -30,10 +30,13 @@
         app:layout_constraintTop_toBottomOf="@+id/place">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/spot_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:scrollbars="vertical"
             app:layoutManager="LinearLayoutManager"
-            android:scrollbars="vertical" />
+            tools:listitem="@layout/activity_places_detail" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

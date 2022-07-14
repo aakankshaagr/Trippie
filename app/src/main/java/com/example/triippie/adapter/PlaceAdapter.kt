@@ -1,6 +1,7 @@
 package com.example.triippie.adapter
 
 import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +14,23 @@ import com.example.triippie.model.Places
 
 class PlaceAdapter(private val context: Context, private val dataset:List<Places>):
         RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder>(){
-        class PlaceViewHolder(private val view: View):RecyclerView.ViewHolder(view){
+    private lateinit var mListener:PlaceClickListener
+    interface PlaceClickListener{
+        fun onPlaceClick(position:Int)
+    }
+    fun setPlaceClickListener(listener:PlaceClickListener){
+        mListener=listener
+    }
+        class PlaceViewHolder(private val view: View,listener: PlaceClickListener):RecyclerView.ViewHolder(view){
             val textView:TextView =view.findViewById(R.id.place_title)
             val imageView:ImageView=view.findViewById(R.id.place_img)
+            init{
+                itemView.setOnClickListener {
+                    listener.onPlaceClick(adapterPosition)
+                }
+            }
         }
+
 
     override fun getItemCount(): Int {
         return dataset.size
@@ -24,7 +38,8 @@ class PlaceAdapter(private val context: Context, private val dataset:List<Places
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceViewHolder {
         val adapterLayout=LayoutInflater.from(parent.context).inflate(R.layout.activity_find_location,parent,false)
-        return PlaceViewHolder(adapterLayout)
+        return PlaceViewHolder(adapterLayout,mListener)
+
 
     }
     override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {
@@ -32,5 +47,7 @@ class PlaceAdapter(private val context: Context, private val dataset:List<Places
         holder.textView.text=context.resources.getString(place.stringResourceId)
         holder.imageView.setImageResource(place.imageResourceId)
 
+
     }
+
     }

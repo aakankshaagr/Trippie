@@ -28,6 +28,26 @@
             android:exported="false">
 
         </activity>
+        <activity
+            android:name=".SpotActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".KashmirTripActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".MumbaiTripActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".SevenSisterActivity"
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>
